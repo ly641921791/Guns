@@ -13,11 +13,13 @@ beetl:
   resource-auto-check: true         #热加载beetl模板，开发时候用
 
 spring:
-  profiles:
-    active: @spring.active@
+#  profiles:
+#    active: @spring.active@
   mvc:
     view:
       prefix: /pages
+  datasource:
+    schema: classpath:/sql/schema.sql
   devtools:
     restart:
       enabled: false
@@ -31,6 +33,8 @@ spring:
 mybatis-plus:
   typeAliasesPackage: cn.stylefeng.guns.modular.system.model
   mapper-locations: classpath:cn/stylefeng/guns/modular/**/mapping/*.xml
+  configuration:
+    logImpl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 log:
   path: guns-logs
